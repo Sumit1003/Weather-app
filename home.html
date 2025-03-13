@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/partly-cloudy.png">
+    <title>Weather & Tasks Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+
+</head>
+<body>
+    <div class="app-container">
+        <!-- Left Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>Dashboard</h2>
+                <div class="menu-toggle" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-section="weather">
+                    <span class="icon">🌤️</span>
+                    <span class="nav-text">Weather</span>
+                </li>
+                <li data-section="tasks">
+                    <span class="icon">📝</span>
+                    <span class="nav-text">Tasks</span>
+                </li>
+                <li data-section="analytics">
+                    <span class="icon">📊</span>
+                    <span class="nav-text">Analytics</span>
+                </li>
+                <li data-section="settings">
+                    <span class="icon">⚙️</span>
+                    <span class="nav-text">Settings</span>
+                </li>
+            </ul>
+            <div class="theme-toggle">
+                <span class="icon">🌙</span>
+                <label class="switch">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider round"></span>
+                </label>
+                <span class="icon">☀️</span>
+            </div>
+            <div class="user-profile">
+                <div class="profile-img">
+                    <img src="/assets/836.jpg" alt="User Profile">
+                </div>
+                <div class="profile-info">
+                    <h3>User Name</h3>
+                    <p>Premium User</p>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Weather Section -->
+            <section id="weather" class="section active">
+                <h1 class="section-title">Weather Forecast</h1>
+                
+                <div class="search-container">
+                    <div class="search-input-wrapper">
+                        <input type="text" id="city-input" placeholder="Enter city name...">
+                        <button id="search-btn" class="btn-primary">
+                            <span class="search-icon">🔍</span>
+                            <span class="search-text">Search</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="weather-container">
+                    <div class="current-weather card">
+                        <div class="weather-header">
+                            <h2 id="city-name">Loading...</h2>
+                            <p id="current-date">--</p>
+                        </div>
+                        <div class="weather-info">
+                            <div class="temp-container">
+                                <h1 id="temperature">--°C</h1>
+                                <p id="feels-like">Feels like: --°C</p>
+                            </div>
+                            <div class="weather-icon">
+                                <img id="weather-icon" src="/placeholder.svg?height=100&width=100" alt="Weather Icon">
+                                <p id="weather-description">--</p>
+                            </div>
+                        </div>
+                        <div class="weather-details">
+                            <div class="detail">
+                                <span class="detail-icon">💧</span>
+                                <div class="detail-info">
+                                    <p class="detail-title">Humidity</p>
+                                    <p id="humidity" class="detail-value">--%</p>
+                                </div>
+                            </div>
+                            <div class="detail">
+                                <span class="detail-icon">💨</span>
+                                <div class="detail-info">
+                                    <p class="detail-title">Wind</p>
+                                    <p id="wind-speed" class="detail-value">-- km/h</p>
+                                </div>
+                            </div>
+                            <div class="detail">
+                                <span class="detail-icon">🌡️</span>
+                                <div class="detail-info">
+                                    <p class="detail-title">Pressure</p>
+                                    <p id="pressure" class="detail-value">-- hPa</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="forecast-container">
+                        <h3>5-Day Forecast</h3>
+                        <div class="forecast-cards" id="forecast-cards">
+                            <!-- Forecast cards will be added here dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tasks Section -->
+            <section id="tasks" class="section">
+                <h1 class="section-title">Task Manager</h1>
+                
+                <div class="task-form card">
+                    <input type="text" id="task-input" placeholder="Add a new task...">
+                    <div class="task-form-row">
+                        <div class="form-group">
+                            <label for="task-date">Due Date</label>
+                            <input type="date" id="task-date">
+                        </div>
+                        <div class="form-group">
+                            <label for="task-priority">Priority</label>
+                            <select id="task-priority">
+                                <option value="low">Low Priority</option>
+                                <option value="medium">Medium Priority</option>
+                                <option value="high">High Priority</option>
+                            </select>
+                        </div>
+                        <button id="add-task-btn" class="btn-primary">
+                            <span class="btn-icon">+</span>
+                            <span class="btn-text">Add Task</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="task-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="pending">Pending</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+
+                <div class="tasks-container card">
+                    <div id="tasks-list" class="tasks-list">
+                        <!-- Tasks will be added here dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Section (Placeholder) -->
+            <section id="analytics" class="section">
+                <h1 class="section-title">Analytics</h1>
+                <div class="analytics-container">
+                    <div class="analytics-card card">
+                        <h3>Task Completion Rate</h3>
+                        <div class="chart-container">
+                            <canvas id="completion-chart"></canvas>
+                            <div class="chart-placeholder">Analytics dashboard coming soon...</div>
+                        </div>
+                    </div>
+                    <div class="analytics-card card">
+                        <h3>Task Distribution</h3>
+                        <div class="chart-container">
+                            <canvas id="distribution-chart"></canvas>
+                            <div class="chart-placeholder">Analytics dashboard coming soon...</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section (Placeholder) -->
+            <section id="settings" class="section">
+                <h1 class="section-title">Settings</h1>
+                <div class="settings-container">
+                    <div class="settings-card card">
+                        <h3>App Settings</h3>
+                        <div class="settings-group">
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Dark Mode</h4>
+                                    <p>Toggle between light and dark theme</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="dark-mode-toggle">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Notifications</h4>
+                                    <p>Enable task reminders</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Temperature Unit</h4>
+                                    <p>Choose between Celsius and Fahrenheit</p>
+                                </div>
+                                <div class="unit-toggle">
+                                    <button class="unit-btn active" data-unit="celsius">°C</button>
+                                    <button class="unit-btn" data-unit="fahrenheit">°F</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="settings-card card">
+                        <h3>Account Settings</h3>
+                        <div class="settings-placeholder">Account settings coming soon...</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
