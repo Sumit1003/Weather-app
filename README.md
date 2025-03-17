@@ -1,7 +1,7 @@
 # Weather & Task Manager App
 
 🌐 Live Demo
-🔗 Live Demo (weather-app-drab-nine-85.vercel.app)
+🔗 Live Demo (https://weather-app-drab-nine-85.vercel.app/)
 
 ## Overview
 The Weather & Task Manager App is a web-based application that allows users to check real-time weather updates and manage their daily tasks efficiently. The app integrates OpenWeatherMap API for weather data and provides a simple task management system.
